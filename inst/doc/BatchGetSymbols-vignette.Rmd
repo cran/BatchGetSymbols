@@ -1,0 +1,81 @@
+---
+title: "Using BatchGetSymbols to download financial data for several tickers"
+author: "Marcelo Perlin"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{How to use BatchGetSymbols}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Motivation
+
+One of the great things of working in finance is that end of day prices of financial contracts are freely available from sources such as Google and Yahoo Finance. This is an excelent feature for building up to date content for financial classes and also conducting academic research. 
+
+In the past I have used function GetSymbols from the CRAN package [quantmod](https://cran.r-project.org/package=quantmod) in order to download end of day trade data for several stocks in the financial market. The problem in using GetSymbols is that it was not designed to take into consideration the aggregation of financial data for several tickers. Within GetSymbols, each stock will have its own xts object with different column names and this makes it troublesome to store data from several tickers in a single dataframe in the long format. If you are using dplyr and ggplot2 to process and plot data, the long format is expected.
+
+The package BatchGetSymbols is my solution to this problem. Based on a list of tickers and a time period, the function will download the data by automatically choosing the correct source, yahoo or google, and output two dataframes: a single dataframe with all the information for all stocks in the list and a dataframe with a report of the download process. The user can also set a benchmark ticker in order to compare dates and eliminate assets with a low number of observations from the resulting dataframe.
+
+## A simple example
+
+Let's download data for three stocks, facebook (FB), 3M (MMM) and abcdef, a ticker I just made up. We will use the last 15 days as the time period.
+
+```{r example1}
+library(BatchGetSymbols, quietly = T)
+
+first.date <- Sys.Date()-15
+last.date <- Sys.Date()
+
+tickers <- c('FB','NYSE:MMM','abcdef')
+
+l.out <- BatchGetSymbols(tickers = tickers,
+                         first.date = first.date,
+                         last.date = last.date)
+
+```
+
+
+After downloading the data, we can check the success of the process for each ticker. Notice that the last ticker does not exist in yahoo finance or google and therefore results in an error. All information regarding the download process is provided in the dataframe df.control:
+
+```{r example2}
+print(l.out$df.control)
+
+```
+
+Moreover, we can plot the dailly closing pricess using ggplot2:
+
+
+```{r plot.prices, fig.width=7, fig.height=2.5}
+library(ggplot2)
+ 
+p <- ggplot(l.out$df.tickers, aes(x = ref.date, y = price.close, color = ticker))
+p <-  p + geom_line()
+print(p)
+```
+
+           
+                         
+## Downloading data for all tickers in the SP500 index
+
+A more advanced example would be to download data for all stocks in the SP500 stock index. The package also includes a function that downloads the current composition of the SP500 index from the internet. By using this function along with BatchGetSymbols, we can easily import end-of-day data for all assets in the SP500 index. 
+
+Notice the following code, where we download data for the SP500 stocks for the last year. The code is not executed in this vignette given its time duration, but you can just copy and paste on its own R script in order to check the results. In my computer it takes around 5 minutes to download the whole dataset.
+
+```{r example3,eval=FALSE}
+library(BatchGetSymbols)
+
+first.date <- Sys.Date()-365
+last.date <- Sys.Date()
+
+df.SP500 <- GetSP500Stocks()
+tickers <- df.SP500$tickers
+
+l.out <- BatchGetSymbols(tickers = tickers,
+                         first.date = first.date,
+                         last.date = last.date)
+
+print(l.out$df.control)
+print(l.out$df.tickers)
+
+```
