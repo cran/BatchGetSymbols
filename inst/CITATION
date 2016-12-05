@@ -1,0 +1,6 @@
+bibentry(bibtype = "Manual",
+         title = "BatchGetSymbols: Downloads and Organizes Financial Data for Multiple Tickers",
+         author = person("Marcelo", "Perlin"),
+         year = 2016,
+         journal = 'CRAN Package',
+         url = "https://CRAN.R-project.org/package=BatchGetSymbols")

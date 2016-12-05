@@ -1,4 +1,4 @@
-#' Function to download financial data from a list of tickers
+#' Function to download financial data from a vector of tickers
 #'
 #' This function is designed to make batch downloads of financial data using \code{\link[quantmod]{getSymbols}}.
 #' Based on a set of tickers and a time period, the function will download the data for each ticker and return a report of the process, along with the actual data in the long dataframe format.
@@ -8,7 +8,8 @@
 #'
 #' Do notice that adjusted prices are not available from google finance. When using this source, the function will output NA values for this columns.
 #'
-#' @param tickers A vector of tickers. If not sure wheter the ticker is available, check the websites of google and yahoo finance
+#' @param tickers A vector of tickers. If not sure wheter the ticker is available, check the websites of google and yahoo finance. The source for downloading
+#'  the data can either be Google or Yahoo. The function automatically selects the source webpage based on the input ticker.
 #' @param first.date The first date to download data (date class)
 #' @param last.date The last date to download data (date class)
 #' @param bench.ticker The ticker of the benchmark asset used to compared dates. My suggestion is to use the main stock index of the market from where the data is coming from (default = ^GSPC (SP500, US market))
@@ -136,7 +137,7 @@ BatchGetSymbols <- function(tickers,
         threshold.decision = 'OUT'
       }
 
-      cat(paste0(' - ', sample(c('OK!','Got it!','Nice!','Good stuff!','Good job!','Well done!'),1)))
+      cat(paste0(' - ', sample(c('OK!','Got it!','Nice!','Good stuff!','Good job!','Well done!','Boa!'),1)))
 
       df.tickers <- rbind(df.tickers,out)
 

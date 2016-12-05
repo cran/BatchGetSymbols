@@ -2,13 +2,14 @@
 % Please edit documentation in R/BatchGetSymbols.R
 \name{BatchGetSymbols}
 \alias{BatchGetSymbols}
-\title{Function to download financial data from a list of tickers}
+\title{Function to download financial data from a vector of tickers}
 \usage{
 BatchGetSymbols(tickers, bench.ticker = "^GSPC", first.date, last.date,
   thresh.bad.data = 0.9)
 }
 \arguments{
-\item{tickers}{A vector of tickers. If not sure wheter the ticker is available, check the websites of google and yahoo finance}
+\item{tickers}{A vector of tickers. If not sure wheter the ticker is available, check the websites of google and yahoo finance. The source for downloading
+the data can either be Google or Yahoo. The function automatically selects the source webpage based on the input ticker.}
 
 \item{bench.ticker}{The ticker of the benchmark asset used to compared dates. My suggestion is to use the main stock index of the market from where the data is coming from (default = ^GSPC (SP500, US market))}
 

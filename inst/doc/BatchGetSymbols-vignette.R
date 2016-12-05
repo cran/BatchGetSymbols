@@ -1,10 +1,10 @@
 ## ----example1------------------------------------------------------------
 library(BatchGetSymbols, quietly = T)
 
-first.date <- Sys.Date()-15
+first.date <- Sys.Date()-150
 last.date <- Sys.Date()
 
-tickers <- c('FB','NYSE:MMM','abcdef')
+tickers <- c('FB','NYSE:MMM','PETR4.SA','abcdef')
 
 l.out <- BatchGetSymbols(tickers = tickers,
                          first.date = first.date,
@@ -18,8 +18,9 @@ print(l.out$df.control)
 ## ----plot.prices, fig.width=7, fig.height=2.5----------------------------
 library(ggplot2)
  
-p <- ggplot(l.out$df.tickers, aes(x = ref.date, y = price.close, color = ticker))
-p <-  p + geom_line()
+p <- ggplot(l.out$df.tickers, aes(x = ref.date, y = price.close))
+p <- p + geom_line()
+p <- p + facet_wrap(~ticker, scales = 'free_y') 
 print(p)
 
 ## ----example3,eval=FALSE-------------------------------------------------
