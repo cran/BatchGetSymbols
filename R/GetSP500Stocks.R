@@ -1,4 +1,4 @@
-#' Function to download the currente components of the SP500 index from Wikipedia
+#' Function to download the current components of the SP500 index from Wikipedia
 #'
 #' This function scrapes the stocks that constitute the SP500 index from the wikipedia page at https://en.wikipedia.org/wiki/List_of_S%26P_500_companies.
 #'
@@ -19,7 +19,7 @@ GetSP500Stocks <- function(){
 
   df.SP500Stocks <- my.url %>%
     read_html() %>%
-    html_nodes(xpath='//*[@id="mw-content-text"]/table[1]') %>%
+    html_nodes(xpath='//*[@id="mw-content-text"]/div/table[1]') %>%
     html_table()
 
   df.SP500Stocks <- df.SP500Stocks[[1]]

@@ -2,7 +2,7 @@
 % Please edit documentation in R/GetSP500Stocks.R
 \name{GetSP500Stocks}
 \alias{GetSP500Stocks}
-\title{Function to download the currente components of the SP500 index from Wikipedia}
+\title{Function to download the current components of the SP500 index from Wikipedia}
 \usage{
 GetSP500Stocks()
 }
@@ -18,4 +18,3 @@ df.SP500 <- GetSP500Stocks()
 print(df.SP500$tickers)
 }
 }
-

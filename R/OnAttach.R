@@ -8,7 +8,6 @@
   year = {2016},
   journal = {CRAN Package},
   url = {https://CRAN.R-project.org/package=BatchGetSymbols}
-}
 }'
   my.message <- paste('\nThank you for using BatchGetSymbols! If applicable, please use the following citation',
                       'in your research report. Thanks!',

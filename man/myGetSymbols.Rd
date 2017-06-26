@@ -38,4 +38,3 @@ df.ticker <- myGetSymbols(ticker,
 \seealso{
 \link[quantmod]{getSymbols} for the base function
 }
-

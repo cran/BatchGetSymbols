@@ -8,7 +8,7 @@
 #'
 #' Do notice that adjusted prices are not available from google finance. When using this source, the function will output NA values for this columns.
 #'
-#' @param tickers A vector of tickers. If not sure wheter the ticker is available, check the websites of google and yahoo finance. The source for downloading
+#' @param tickers A vector of tickers. If not sure whether the ticker is available, check the websites of google and yahoo finance. The source for downloading
 #'  the data can either be Google or Yahoo. The function automatically selects the source webpage based on the input ticker.
 #' @param first.date The first date to download data (date class)
 #' @param last.date The last date to download data (date class)
