@@ -1,4 +1,16 @@
-### Version 1.1  (2017-06-26)
+### Version 2.0  (2018-01-22)
+
+Major update:
+
+- New fct GetIBovStocks for downloading current composition of Ibovespa
+- New fct for changing to wide format
+- Now the output includes returns and not only prices
+- removed annoying startup message
+- implemented clever caching system for financial data
+- simplified input dates (no need for Date class any more)
+
+
+### Version 1.2  (2017-06-26)
 
 - Fixed issue with GetSP500(). The wikipedia page changed its code.. 
 

@@ -1,14 +1,20 @@
 ## ----example1------------------------------------------------------------
-library(BatchGetSymbols, quietly = T)
+if (!require(BatchGetSymbols)) install.packages('BatchGetSymbols')
 
-first.date <- Sys.Date()-150
+library(BatchGetSymbols)
+
+# set dates
+first.date <- Sys.Date() - 60
 last.date <- Sys.Date()
 
+# set tickers
 tickers <- c('FB','NYSE:MMM','PETR4.SA','abcdef')
 
-l.out <- BatchGetSymbols(tickers = tickers,
+l.out <- BatchGetSymbols(tickers = tickers, 
                          first.date = first.date,
-                         last.date = last.date)
+                         last.date = last.date, 
+                         cache.folder = file.path(tempdir(), 
+                                                  'BGS_Cache') ) # cache in tempdir()
 
 
 ## ----example2------------------------------------------------------------

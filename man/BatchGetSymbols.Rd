@@ -2,23 +2,33 @@
 % Please edit documentation in R/BatchGetSymbols.R
 \name{BatchGetSymbols}
 \alias{BatchGetSymbols}
-\title{Function to download financial data from a vector of tickers}
+\title{Function to download financial datas from a vector of tickers}
 \usage{
-BatchGetSymbols(tickers, bench.ticker = "^GSPC", first.date, last.date,
-  thresh.bad.data = 0.9)
+BatchGetSymbols(tickers, first.date = Sys.Date() - 30,
+  last.date = Sys.Date(), thresh.bad.data = 0.75, bench.ticker = "^GSPC",
+  type.return = "arit", do.complete.data = FALSE, do.cache = TRUE,
+  cache.folder = "BGS_Cache")
 }
 \arguments{
 \item{tickers}{A vector of tickers. If not sure whether the ticker is available, check the websites of google and yahoo finance. The source for downloading
 the data can either be Google or Yahoo. The function automatically selects the source webpage based on the input ticker.}
 
-\item{bench.ticker}{The ticker of the benchmark asset used to compared dates. My suggestion is to use the main stock index of the market from where the data is coming from (default = ^GSPC (SP500, US market))}
+\item{first.date}{The first date to download data (date or char as YYYY-MM-DD)}
 
-\item{first.date}{The first date to download data (date class)}
-
-\item{last.date}{The last date to download data (date class)}
+\item{last.date}{The last date to download data (date or char as YYYY-MM-DD)}
 
 \item{thresh.bad.data}{A percentage threshold for defining bad data. The dates of the benchmark ticker are compared to each asset. If the percentage of non-missing dates
-with respect to the benchmark ticker is lower than thresh.bad.data, the function will ignore the asset (default = 0.9)}
+with respect to the benchmark ticker is lower than thresh.bad.data, the function will ignore the asset (default = 0.75)}
+
+\item{bench.ticker}{The ticker of the benchmark asset used to compare dates. My suggestion is to use the main stock index of the market from where the data is coming from (default = ^GSPC (SP500, US market))}
+
+\item{type.return}{Type of price return to calculate: 'arit' (default) - aritmetic, 'log' - log returns.}
+
+\item{do.complete.data}{Return a complete/balanced dataset? If TRUE, all missing pairs of ticker-date will be replaced by NA (default = FALSE)}
+
+\item{do.cache}{Use caching system? (default = TRUE)}
+
+\item{cache.folder}{Where to save cache files? (default = 'BGS_Cache')}
 }
 \value{
 A list with the following items: \describe{
@@ -29,11 +39,12 @@ A list with the following items: \describe{
 This function is designed to make batch downloads of financial data using \code{\link[quantmod]{getSymbols}}.
 Based on a set of tickers and a time period, the function will download the data for each ticker and return a report of the process, along with the actual data in the long dataframe format.
 The main advantage of the function is that it automatically recognizes the source of the dataset from the ticker and structures the resulting data from different sources in the long format.
+A caching system is also presente, making it very fast.
 }
 \section{Warning}{
 
 
-Do notice that adjusted prices are not available from google finance. When using this source, the function will output NA values for this columns.
+Do notice that adjusted prices are not available from google finance. When using this source, the function will output NA values for this column.
 }
 
 \examples{
@@ -44,7 +55,7 @@ last.date <- Sys.Date()
 
 l.out <- BatchGetSymbols(tickers = tickers,
                          first.date = first.date,
-                        last.date = last.date)
+                        last.date = last.date, do.cache=FALSE)
 
 print(l.out$df.control)
 print(l.out$df.tickers)
