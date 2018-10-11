@@ -1,3 +1,7 @@
+### Version 2.2  (2018-10-10)
+
+- Users can now set frequency of data (daily, weekly, monthly or yearly)
+
 ### Version 2.1  (2018-05-08)
 
 Small update:
