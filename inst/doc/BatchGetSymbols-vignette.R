@@ -8,7 +8,7 @@ first.date <- Sys.Date() - 60
 last.date <- Sys.Date()
 freq.data <- 'daily'
 # set tickers
-tickers <- c('FB','NYSE:MMM','PETR4.SA','abcdef')
+tickers <- c('FB','MMM','PETR4.SA','abcdef')
 
 l.out <- BatchGetSymbols(tickers = tickers, 
                          first.date = first.date,
