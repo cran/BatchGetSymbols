@@ -1,3 +1,11 @@
+## Version 2.5.2  (2019-04-24)
+
+- Fixed bug in stock index grabbing functions 
+
+## Version 2.5.1  (2019-04-13)
+
+- New function for FTSE100 Stocks (thanks samprohaska)
+
 ## Version 2.5  (2019-04-13)
 
 - Implemented option for parallel computations with BatchGetSymbols
