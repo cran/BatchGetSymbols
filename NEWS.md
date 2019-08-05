@@ -1,3 +1,8 @@
+## Version 2.5.3  (2019-07-05)
+
+- Added option for keeping function quiet (be.quiet)
+- Once again fixed function for grabbing constitutents of the SP500 index
+
 ## Version 2.5.2  (2019-04-24)
 
 - Fixed bug in stock index grabbing functions 
