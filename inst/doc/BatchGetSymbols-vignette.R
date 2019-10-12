@@ -37,7 +37,7 @@ print(p)
 #  last.date <- Sys.Date()
 #  
 #  df.SP500 <- GetSP500Stocks()
-#  tickers <- df.SP500$tickers
+#  tickers <- df.SP500$Tickers
 #  
 #  l.out <- BatchGetSymbols(tickers = tickers,
 #                           first.date = first.date,

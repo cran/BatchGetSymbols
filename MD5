@@ -1,6 +1,6 @@
-c8986cadb03dd1aaafbfbd90486eebc6 *DESCRIPTION
+0df9941c7ea388a48f226dc5f4883415 *DESCRIPTION
 f734439c4e0712cfcb7e30da906accd7 *NAMESPACE
-68005e7059b52b8185163e38509964c7 *NEWS.md
+e50f3fb3103be4455761d2c1e806c776 *NEWS.md
 9e8debd486cf1780e17df2382e414804 *R/BatchGetSymbols.R
 cd5dc9a1f947ab7176fba2d530996811 *R/GetFTSE100Stocks.R
 5dcdd23551a79ea3a379a4eef6028d98 *R/GetSP500Stocks.R
@@ -9,9 +9,9 @@ cd5dc9a1f947ab7176fba2d530996811 *R/GetFTSE100Stocks.R
 ff98fbd6f067fd4dea48debb3f04660b *R/myGetSymbols.R
 fe1ca95d675e21f419f0c061099593ee *README.md
 47d04555635d8b410ce6f12d16842665 *build/vignette.rds
-a975d039c032155354c656f9dfd61a8f *inst/doc/BatchGetSymbols-vignette.R
-b08169dd6ffcd6df0a291975e1c4da4e *inst/doc/BatchGetSymbols-vignette.Rmd
-091f0b3d8608845792abd83fad76afb3 *inst/doc/BatchGetSymbols-vignette.html
+166acb13c3b245f09ca3de189555f045 *inst/doc/BatchGetSymbols-vignette.R
+49805957b193f2924b483eb29cf4068e *inst/doc/BatchGetSymbols-vignette.Rmd
+ddaf0927cc0e53b36d781d1d8e14505c *inst/doc/BatchGetSymbols-vignette.html
 7e76581a3faa7886b909a1146b864943 *inst/extdata/ExampleData.rds
 28bd8d8a15973438bd589b8d8e2d0b85 *man/BatchGetSymbols.Rd
 6fc8a8a4202c59af24d4165226dbb0ff *man/GetFTSE100Stocks.Rd
@@ -25,4 +25,4 @@ b2ac79bb8c6c7265374d247776874502 *man/df.fill.na.Rd
 d3a48396e0f0fca2d21e2d44fc2e258c *man/reshape.wide.Rd
 1e242d9a58134f552d610076c37e4e40 *tests/testthat.R
 5f2d6ea9a900664a331232c289954e68 *tests/testthat/test_BatchGetSymbols.R
-b08169dd6ffcd6df0a291975e1c4da4e *vignettes/BatchGetSymbols-vignette.Rmd
+49805957b193f2924b483eb29cf4068e *vignettes/BatchGetSymbols-vignette.Rmd
