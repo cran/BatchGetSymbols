@@ -176,6 +176,8 @@ df.fill.na = function(df.in) {
   cols.to.adjust <- c("price.open", "price.high", "price.low",
                       "price.close", "price.adjusted")
 
+  print(unique(df.in$ticker))
+
   cols.to.adjust <- cols.to.adjust[cols.to.adjust %in% names(df.in)]
 
   # function for finding closest price
@@ -185,7 +187,7 @@ df.fill.na = function(df.in) {
 
     my.dist <- x - vec.comp
     my.dist <- my.dist[my.dist > 0]
-    idx <- which.min(my.dist)
+    idx <- which.min(my.dist)[1]
 
     return(vec.comp[idx])
 
@@ -196,7 +198,7 @@ df.fill.na = function(df.in) {
     # adjust for NA by replacing values
     idx.to.use <- sapply(idx.na,
                          fct.find.min.dist,
-                         vec.comp = idx.not.na )
+                         vec.comp = idx.not.na)
 
     df.in[idx.na, i.col] <- unlist(df.in[idx.to.use, i.col])
 
@@ -213,8 +215,13 @@ df.fill.na = function(df.in) {
 
 .onAttach <- function(libname,pkgname) {
 
+  do_color <- crayon::make_style("#18bc9c")
+
   if (interactive()) {
-    msg <- paste0('\nHi ', Sys.getenv('USER'), '! Want to learn more about using R in Finance? Check out the book at https://amzn.to/2I5FFnE')
+    msg <- paste0('\nHi ', Sys.getenv('USER'), '!\n',
+                  'Want to learn more about using R in Finance and Economics? ',
+                  'The second edition (2020) of my R book is freely available at ',
+                  do_color('https://www.msperlin.com/afedR/') )
   } else {
     msg <- ''
   }

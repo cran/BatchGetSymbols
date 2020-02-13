@@ -1,4 +1,4 @@
-## ----example1------------------------------------------------------------
+## ----example1-----------------------------------------------------------------
 if (!require(BatchGetSymbols)) install.packages('BatchGetSymbols')
 
 library(BatchGetSymbols)
@@ -18,11 +18,11 @@ l.out <- BatchGetSymbols(tickers = tickers,
                                                   'BGS_Cache') ) # cache in tempdir()
 
 
-## ----example2------------------------------------------------------------
+## ----example2-----------------------------------------------------------------
 print(l.out$df.control)
 
 
-## ----plot.prices, fig.width=7, fig.height=2.5----------------------------
+## ----plot.prices, fig.width=7, fig.height=2.5---------------------------------
 library(ggplot2)
  
 p <- ggplot(l.out$df.tickers, aes(x = ref.date, y = price.close))
@@ -30,7 +30,7 @@ p <- p + geom_line()
 p <- p + facet_wrap(~ticker, scales = 'free_y') 
 print(p)
 
-## ----example3,eval=FALSE-------------------------------------------------
+## ----example3,eval=FALSE------------------------------------------------------
 #  library(BatchGetSymbols)
 #  
 #  first.date <- Sys.Date()-365
