@@ -13,9 +13,11 @@
 #' print(df.SP500$tickers)
 #' }
 GetSP500Stocks <- function(do.cache = TRUE,
-                           cache.folder = 'BGS_Cache'){
+                           cache.folder = file.path(tempdir(),
+                                                    'BGS_Cache')){
 
-  cache.file <- file.path(cache.folder, paste0('SP500_Composition_', Sys.Date(), '.rds') )
+  cache.file <- file.path(cache.folder,
+                          paste0('SP500_Composition_', Sys.Date(), '.rds') )
 
   if (do.cache) {
     # check if file exists

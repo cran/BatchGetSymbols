@@ -13,10 +13,12 @@
 #' print(df.ibov$tickers)
 #' }
 GetIbovStocks <- function(do.cache = TRUE,
-                          cache.folder = 'BGS_Cache',
+                          cache.folder = file.path(tempdir(),
+                                                   'BGS_Cache'),
                           max.tries  = 10){
 
-  cache.file <- file.path(cache.folder, paste0('Ibov_Composition_', Sys.Date(), '.rds') )
+  cache.file <- file.path(cache.folder,
+                          paste0('Ibov_Composition_', Sys.Date(), '.rds') )
 
   # get list of ibovespa's tickers from wbsite
 
