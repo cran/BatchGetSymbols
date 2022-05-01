@@ -1,6 +1,20 @@
+## Version 2.6.4 (2022-05-01)
+
+- improved deprecation message using lifecycle
+- added message for do_paralell = TRUE (YF added api calls limits) (see issue [27](https://github.com/msperlin/BatchGetSymbols/issues/27))
+- improved tests
+
+## Version 2.6.3 (2022-03-30)
+
+- Added deprecation message
+
+## Version 2.6.2 (2022-03-08)
+
+- Added message for ibov composition
+
 ## Version 2.6.1 (2020-11-27)
 
-- Fixed issue [issue 21](https://github.com/msperlin/BatchGetSymbols/issues/21), which happened due to the latest update (2.6) and only in Windows. 
+- Fixed issue [issue 21](https://github.com/msperlin/BatchGetSymbols/issues/21), which only happened in Windows. 
 - changed default cache dir for ticker grabbing function
 
 ## Version 2.6 (2020-11-22)
